@@ -19,6 +19,19 @@ func filter(predicate func(int) bool, iterable []int) []int {
 	return result
 }
 
+func filter2(predicate func(int) bool, iterable []int) []int { // Вариант с перезаписью слайса, без дополнительного
+	// отфильтруйте `iterable` с помощью `predicate`
+	// и верните отфильтрованный срез
+	var evenIdx int
+	for _, el := range iterable {
+		if predicate(el) {
+			iterable[evenIdx] = el
+			evenIdx++
+		}
+	}
+	return iterable[:evenIdx]
+}
+
 func filterGeneric[T any](predicate func(T) bool, iterable []T) []T { // Вариант с дженериками
 	var filtered []T
 	for _, item := range iterable {
