@@ -58,7 +58,7 @@ type tournament []match
 
 // calcRating считает и возвращает рейтинг турнира без запроса очков
 func (trn *tournament) calcRating() rating {
-	rate := make(rating)
+	rate := rating{}
 	for _, el := range *trn {
 		switch el.result {
 		case win:
